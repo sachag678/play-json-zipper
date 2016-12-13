@@ -639,7 +639,7 @@ trait JsZipper {
           case found          => found.delete.root
         }
         case head :: tail => zipper.findPath(head) match {
-          case JsZipper.Empty => zipper.root
+          case JsZipper.Empty => step(zipper.root, tail)
           case found          => step(found.delete.root, tail)
         }
       }
