@@ -34,14 +34,8 @@ implicit class JsExtensions(val js: JsValue) extends AnyVal {
     JsZipper(js).createOrUpdate(pathValues).root.value
   }
 
-  def delete(path: JsPath): JsValue = {
-    JsZipper(js).findPath(path).delete.root.value
-  }
-
-  def delete(path1: JsPath, path2: JsPath, others: JsPath*): JsValue = {
-    val paths = path1 +: path2 +: others.toList
-    JsZipper(js)
-      .deletePaths(paths).value
+  def delete(paths: JsPath*): JsValue = {
+    JsZipper(js).deletePaths(paths).value
   }
 
   def update(path: JsPath, f: JsValue => JsValue): JsValue = {

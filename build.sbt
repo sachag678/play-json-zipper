@@ -2,7 +2,7 @@ organization := "com.mandubian"
 
 name    := "play-json-zipper"
 
-version := "1.4"
+version := "1.6"
 
 resolvers ++= Seq(
   "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
@@ -18,6 +18,9 @@ libraryDependencies ++= Seq(
   "junit"                % "junit"      % "4.8"    % "test"
 )
 
+
+//bintrayReleaseOnPublish in ThisBuild := false
+//
 publishMavenStyle := true
 
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))

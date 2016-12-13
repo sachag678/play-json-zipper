@@ -634,10 +634,6 @@ trait JsZipper {
     def step(zipper: JsZipper, currPaths: List[JsPath]): JsZipper = {
       currPaths match {
         case Nil           => zipper
-        case List(p)       => zipper.findPath(p) match {
-          case JsZipper.Empty => zipper.root
-          case found          => found.delete.root
-        }
         case head :: tail => zipper.findPath(head) match {
           case JsZipper.Empty => step(zipper.root, tail)
           case found          => step(found.delete.root, tail)
