@@ -4,12 +4,6 @@ name    := "play-json-zipper"
 
 version := "1.6"
 
-resolvers ++= Seq(
-  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-  "Mandubian repository snapshots" at "https://github.com/mandubian/mandubian-mvn/raw/master/snapshots/",
-  "Mandubian repository releases" at "https://github.com/mandubian/mandubian-mvn/raw/master/releases/"
-)
-
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
@@ -18,10 +12,7 @@ libraryDependencies ++= Seq(
   "junit"                % "junit"      % "4.8"    % "test"
 )
 
-
-//bintrayReleaseOnPublish in ThisBuild := false
-//
-publishMavenStyle := true
+publishTo := Some(Resolver.file("file", new File("../mvn-repo")))
 
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 
