@@ -24,11 +24,9 @@ lazy val shared = crossProject.in(file(".")).
     publishTo := Some(Resolver.file("file", new File("../maven-repo")))
   ).
   jvmSettings(
-    publishMavenStyle := false
     // Add JVM-specific settings here
   ).
   jsSettings(
-    publishMavenStyle := false
     // Add JS-specific settings here
   )
 
