@@ -17,7 +17,7 @@ lazy val shared = crossProject.in(file(".")).
     name := "play-json-zipper",
     version := "1.8",
     libraryDependencies ++= Seq(
-      "com.typesafe.play" %%% "play-json" % "2.6.6",
+      "com.typesafe.play" %%% "play-json" % "2.7.1",
       "org.specs2" %%% "specs2-core" % "4.2.0" % "test"
     ),
     licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),

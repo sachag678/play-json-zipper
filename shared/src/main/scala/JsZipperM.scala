@@ -36,7 +36,7 @@ package object syntax {
   }
 
   implicit val optionMonad = new Monad[Option] {
-    def pure[A](a: A): Option[A] = Option(a)
+    def pure[A](f: => A): Option[A] = Option(f)
     def map[A, B](ma: Option[A], f: A => B): Option[B] = ma map f
     def apply[A, B](mf: Option[A => B], ma: Option[A]): Option[B] = mf flatMap { f => ma map f }
     def bind[A, B](ma: Option[A], f: A => Option[B]): Option[B] = ma flatMap f
@@ -44,7 +44,7 @@ package object syntax {
 
   import scala.concurrent._
   implicit def futureMonad(implicit ctx: ExecutionContext) = new Monad[Future] {
-    def pure[A](a: A): Future[A] = Future(a)
+    def pure[A](f: => A): Future[A] = Future(f)
     def map[A, B](ma: Future[A], f: A => B): Future[B] = ma map f
     def apply[A, B](mf: Future[A => B], ma: Future[A]): Future[B] = mf flatMap { f => ma map f }
     def bind[A, B](ma: Future[A], f: A => Future[B]): Future[B] = ma flatMap f
